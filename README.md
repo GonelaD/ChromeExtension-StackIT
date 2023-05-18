@@ -1,9 +1,11 @@
 # ChromeExtension-StackIT
 
-After Downloading and extracting the file, use the following commands to build the extension
-#"cd stack"
-#"npm i"
-#"npm run build"
+After Downloading and extracting the file, use the following commands to build the extension:
+
+cd stack
+npm i
+npm run build
+
 
 Next step, add extension to chrome:
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Papa from "papaparse";
 import './App.css';
-
+import Google from './Google';
 
 const App = () => {
 
@@ -12,7 +12,17 @@ const App = () => {
   const [loading,setLoading] = useState(false);
   const [newSheet,setNewSheet] = useState(false);
 
+
+  
+
   useEffect(() => {
+
+    // chrome.runtime.sendMessage({ message: "Hello from App.js!" });
+    // chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+    //   // Handle the message received from the content script
+    //   // You can perform any necessary actions here
+    //   console.log("message app.js",message)
+    // });
 
 
     console.log(process.env)
@@ -60,6 +70,7 @@ const App = () => {
 
           navigator.clipboard.writeText(sheetData)
 
+         
           console.log("copied to clip board")
           setShowDialog(true);
           // const pasteEvent = document.createEvent('Event');
@@ -175,12 +186,13 @@ const App = () => {
           <button onClick={closeDialog}>Close</button>
         </div>
       )}
-      {loading && (
+      {/* {loading && ( */}
         <div className="dialog">
           <p>CSV is Loading...</p>
           <button onClick={closeDialog}>Close</button>
+          <Google />
         </div>
-      )}
+      {/* )} */}
      
     </div>
   );
